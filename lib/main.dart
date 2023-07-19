@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_statemanagemnet_mvvm_architecture_rest_apis/provider_directory/auth_provider.dart';
 import 'package:provider_statemanagemnet_mvvm_architecture_rest_apis/provider_directory/count_provider.dart';
 import 'package:provider_statemanagemnet_mvvm_architecture_rest_apis/provider_directory/example_one_provider.dart';
 import 'package:provider_statemanagemnet_mvvm_architecture_rest_apis/provider_directory/favourite_provider.dart';
@@ -12,6 +13,8 @@ import 'package:provider_statemanagemnet_mvvm_architecture_rest_apis/why_provide
 
 import 'favourite_directory/dark_theme.dart';
 import 'favourite_directory/favourite_screen.dart';
+import 'favourite_directory/login.dart';
+import 'favourite_directory/value_notify_listener.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +32,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
           ChangeNotifierProvider(create: (_) => FavouriteItemProvider()),
           ChangeNotifierProvider(create: (_) => ThemeChanger()),
+          ChangeNotifierProvider(create: (_)=>AuthProvider()),
         ],
         child: Builder(
           builder: (BuildContext context) {
@@ -51,7 +55,7 @@ class MyApp extends StatelessWidget {
                   color: Colors.pink,
                 ),
               ),
-              home: const FavouriteScreen(),
+              home:  LoginScreen(),
             );
           },
         ));
